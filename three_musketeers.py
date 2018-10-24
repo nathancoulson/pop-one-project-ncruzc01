@@ -49,7 +49,7 @@ def location_to_string(location):
     Similarly to the previous function, this function should raise
     ValueError exception if the input is outside of the correct range
     """
-    pass # Replace with code
+    return 'x,x'
 
 def at(location):
     """Returns the contents of the board at the given location.
@@ -58,38 +58,38 @@ def at(location):
 
 def all_locations():
     """Returns a list of all 25 locations on the board."""
-    pass # Replace with code
+    return [(1,1),(2,2)]
 
 def adjacent_location(location, direction):
     """Return the location next to the given one, in the given direction.
        Does not check if the location returned is legal on a 5x5 board.
        You can assume that input will always be in correct range."""
     (row, column) = location
-    pass # Replace with code
+    return (0,0)
 
 def is_legal_move_by_musketeer(location, direction):
     """Tests if the Musketeer at the location can move in the direction.
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'M'"""
-    pass # Replace with code
+    return False
 
 def is_legal_move_by_enemy(location, direction):
     """Tests if the enemy at the location can move in the direction.
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'R'"""
-    pass # Replace with code
+    return False
 
 def is_legal_move(location, direction):
     """Tests whether it is legal to move the piece at the location
     in the given direction.
     You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return False
 
 def can_move_piece_at(location):
     """Tests whether the player at the location has at least one move available.
     You can assume that input will always be in correct range.
     You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return False
 
 
 def has_some_legal_move_somewhere(who):
@@ -97,30 +97,30 @@ def has_some_legal_move_somewhere(who):
     be either 'M' or 'R'). Does not provide any information on where
     the legal move is.
     You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return False
 
 def possible_moves_from(location):
     """Returns a list of directions ('left', etc.) in which it is legal
        for the player at location to move. If there is no player at
        location, returns the empty list, [].
        You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return ['right','down']
 
 def is_legal_location(location):
     """Tests if the location is legal on a 5x5 board.
     You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return False
     
 def is_within_board(location, direction):
     """Tests if the move stays within the boundaries of the board.
     You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return False
     
 def all_possible_moves_for(player):
     """Returns every possible move for the player ('M' or 'R') as a list
        (location, direction) tuples.
        You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return [((0,4), 'up'), ((2,3), 'down')]
 
 def make_move(location, direction):
     """Moves the piece in location in the indicated direction.
@@ -133,11 +133,11 @@ def choose_computer_move(who):
        enemy (who = 'R') and returns it as the tuple (location, direction),
        where a location is a (row, column) tuple as usual.
        You can assume that input will always be in correct range."""
-    pass # Replace with code
+    return ((0,0), 'up')
 
 def is_enemy_win():
     """Returns True if all 3 Musketeers are in the same row or column."""
-    pass # Replace with code
+    return False
 
 #---------- Communicating with the user ----------
 #----you do not need to modify code below unless you find a bug
