@@ -36,7 +36,7 @@ def test_get_board():
 def test_string_to_location():
     with pytest.raises(ValueError):
         string_to_location('X3')
-    assert string_to_location('A0') == (0,0)
+    assert string_to_location('A1') == (0,0)
     #eventually add at least one more exception test and two more
     #test with correct inputs
 
@@ -66,7 +66,7 @@ def test_can_move_piece_at():
 
 def test_has_some_legal_move_somewhere():
     set_board(board1)
-    assert has_some_legal_move_somewhere('M') == False
+    assert has_some_legal_move_somewhere('M') == True
     assert has_some_legal_move_somewhere('R') == True
     # Eventually put at least three additional tests here
     # with at least one additional board

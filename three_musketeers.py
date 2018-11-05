@@ -108,7 +108,7 @@ def possible_moves_from(location):
 
 def is_legal_location(location):
     """Tests if the location is legal on a 5x5 board.
-    You can assume that input will always be in correct range."""
+    You can assume that input will be a pair of integer numbers."""
     return False
     
 def is_within_board(location, direction):
