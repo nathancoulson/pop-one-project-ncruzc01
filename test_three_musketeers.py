@@ -37,23 +37,32 @@ def test_string_to_location():
     with pytest.raises(ValueError):
         string_to_location('X3')
     assert string_to_location('A1') == (0,0)
+    assert string_to_location('B3') == (1,2)
     #eventually add at least one more exception test and two more
     #test with correct inputs
 
 def test_location_to_string():
-    assert location_to_string((1,1)) == '1,1'
+    assert location_to_string((1,1)) == 'B2'
+    assert location_to_string((0,0)) == 'A1'
+    assert location_to_string((3,3)) == 'D4'
 
 def test_at():
-    assert at((1,1)) == '_'
+    assert at((0,3)) == 'M'
 
 def test_all_locations():
-    assert all_locations() == [(0,0),(1,2)]
+    assert len(all_locations()) == 25
+    assert all_locations()[0] == (0,0)
+    assert all_locations()[2][1] == 2
 
 def test_adjacent_location():
     assert adjacent_location((0,0),"right") == (0,1)
+    assert adjacent_location((2,4), "left") == (2,3)
+    assert adjacent_location((1,4), "down") == (2,4)
     
 def test_is_legal_move_by_musketeer():
     assert is_legal_move_by_musketeer((1,3), "down") == True
+    assert is_legal_move_by_musketeer((0,3), "left") == False
+    assert is_legal_move_by_musketeer((2, 2), "up") == True
     
 def test_is_legal_move_by_enemy():
     assert is_legal_move_by_enemy((1,2), "up") == True

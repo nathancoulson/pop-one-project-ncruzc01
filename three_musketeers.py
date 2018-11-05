@@ -42,14 +42,43 @@ def string_to_location(s):
        is outside of the correct range (between 'A' and 'E' for s[0] and
        between '1' and '5' for s[1]
        """
-    pass # Replace with code
+    alpha = ['A','B','C','D','E'] #create temporary list variables in order to use the index function
+    nums = ['1','2','3','4','5']
+
+    try:
+        if len(s) != 2:
+            raise ValueError('Input value is not of length 2. Please try again.')
+        elif s[0] not in alpha:
+            raise ValueError
+        elif s[1] not in nums:
+            raise ValueError
+        else:
+            return (alpha.index(s[0]), nums.index(s[1])) #return a tuple with correct location determined by finding the index of the temporary range variables alpha or num
+
+    except ValueError:
+        print("The input value is outside of the correct range, please try again.")
+        raise
 
 def location_to_string(location):
     """Returns the string representation of a location.
     Similarly to the previous function, this function should raise
     ValueError exception if the input is outside of the correct range
     """
-    return 'x,x'
+
+    alpha = ['A', 'B', 'C', 'D', 'E'] #create temporary list variables in order to use the index function
+    nums = ['1', '2', '3', '4', '5']
+
+    try:
+        if len(location) != 2:
+            raise ValueError('Input value is not of length 2. Please try again.')
+        elif location[0] not in range(0, 4) or location[1] not in range(0, 4):
+            raise ValueError
+        else:
+            return (alpha[location[0]] + nums[location[1]]) #return a string with correct characters determined by using the location intergers as the index of the temporary range variables alpha or num
+
+    except ValueError:
+        print("The input value is outside of the correct range, please try again.")
+        raise
 
 def at(location):
     """Returns the contents of the board at the given location.
@@ -58,20 +87,40 @@ def at(location):
 
 def all_locations():
     """Returns a list of all 25 locations on the board."""
-    return [(1,1),(2,2)]
+    return [(i,j) for i in range(0, 5) for j in range(0,5)] #return a nested list comprehension which creates the list of all 25 possible locations
 
 def adjacent_location(location, direction):
     """Return the location next to the given one, in the given direction.
        Does not check if the location returned is legal on a 5x5 board.
        You can assume that input will always be in correct range."""
-    (row, column) = location
-    return (0,0)
+
+    if direction == 'up':
+        return ((location[0] - 1), location[1])
+    elif direction == 'left':
+        return (location[0], (location[1] - 1))
+    elif direction == 'down':
+        return ((location[0] + 1), location[1])
+    elif direction == 'right':
+        return (location[0], (location[1] + 1))
+
+    #return modified location tuple depending on direction
+
 
 def is_legal_move_by_musketeer(location, direction):
     """Tests if the Musketeer at the location can move in the direction.
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'M'"""
-    return False
+    try:
+        if at(location) != 'M':
+            raise ValueError("Musketeer not at given location, choose another location")
+        elif at(adjacent_location(location, direction)) == 'R':
+            return True
+        else:
+            return False
+    except ValueError:
+        print("The input values are not appropriate, please try again")
+        raise
+
 
 def is_legal_move_by_enemy(location, direction):
     """Tests if the enemy at the location can move in the direction.
