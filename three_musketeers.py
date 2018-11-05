@@ -111,9 +111,9 @@ def is_legal_move_by_musketeer(location, direction):
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'M'"""
     try:
-        if at(location) != 'M':
+        if at(location) != 'M': #check if location contains a Musketeer 'M'
             raise ValueError("Musketeer not at given location, choose another location")
-        elif at(adjacent_location(location, direction)) == 'R':
+        elif at(adjacent_location(location, direction)) == 'R': #check if the suggested move points to a location which contains an enemy 'R'
             return True
         else:
             return False
@@ -126,19 +126,55 @@ def is_legal_move_by_enemy(location, direction):
     """Tests if the enemy at the location can move in the direction.
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'R'"""
-    return False
+    try:
+        if at(location) != 'R': #check if location contains an enemy 'R'
+            raise ValueError("Enemy not at given location, choose another location")
+        elif at(adjacent_location(location, direction)) == '-': #check if the suggested move points to a location which contains an empty space '-'
+            return True
+        else:
+            return False
+    except ValueError:
+        print("The input values are not appropriate, please try again")
+        raise
 
 def is_legal_move(location, direction):
     """Tests whether it is legal to move the piece at the location
     in the given direction.
     You can assume that input will always be in correct range."""
-    return False
+    try:
+        if at(location) == '-':  #check if location contains an empty space '-'
+            raise ValueError("Player not at given location, please select either 'M' or 'R' space")
+        elif at(location) == 'M':
+            return is_legal_move_by_musketeer(location, direction) #check if move is legal for Musketeer
+        elif at(location) == 'R':
+            return is_legal_move_by_enemy(location, direction) #check if move is legal for Enemy
+    except ValueError:
+        print("The input values are not appropriate, please try again")
+        raise
+
 
 def can_move_piece_at(location):
     """Tests whether the player at the location has at least one move available.
     You can assume that input will always be in correct range.
     You can assume that input will always be in correct range."""
-    return False
+
+    directions = ['left', 'right', 'up', 'down'] #define list of possible directions
+
+    try:
+        if at(location) == '-':  #check if location contains an empty space '-'
+            raise ValueError("Player not at given location, please select either 'M' or 'R' space")
+        else:
+            for direction in directions:
+                if is_legal_move(location, direction) == True: #check if a move is legal in all directions
+                    return True
+                else:
+                    return False
+    except ValueError:
+        print("The input values are not appropriate, please try again")
+        raise
+
+
+
 
 
 def has_some_legal_move_somewhere(who):
@@ -146,7 +182,23 @@ def has_some_legal_move_somewhere(who):
     be either 'M' or 'R'). Does not provide any information on where
     the legal move is.
     You can assume that input will always be in correct range."""
-    return False
+
+    p_move = False
+
+    try:
+        if who == '-':  #check if location contains an empty space '-'
+            raise ValueError("Player not at given location, please select either 'M' or 'R' space")
+        else:
+            for location in all_locations():
+                if at(location) == who and can_move_piece_at(location) == True: #check for legal moves in all locations occupied by the player
+                    p_move = True
+                    break
+
+            return p_move
+
+    except ValueError:
+        print("The input values are not appropriate, please try again")
+        raise
 
 def possible_moves_from(location):
     """Returns a list of directions ('left', etc.) in which it is legal
