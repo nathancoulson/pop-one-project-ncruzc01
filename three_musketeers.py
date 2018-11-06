@@ -113,6 +113,8 @@ def is_legal_move_by_musketeer(location, direction):
     try:
         if at(location) != 'M': #check if location contains a Musketeer 'M'
             raise ValueError("Musketeer not at given location, choose another location")
+        elif is_within_board(location, direction) == False: #check if the move is legal on a 5x5 board
+            return False
         elif at(adjacent_location(location, direction)) == 'R': #check if the suggested move points to a location which contains an enemy 'R'
             return True
         else:
@@ -129,6 +131,8 @@ def is_legal_move_by_enemy(location, direction):
     try:
         if at(location) != 'R': #check if location contains an enemy 'R'
             raise ValueError("Enemy not at given location, choose another location")
+        elif is_within_board(location, direction) == False: #check if the move is legal on a 5x5 board
+            return False
         elif at(adjacent_location(location, direction)) == '-': #check if the suggested move points to a location which contains an empty space '-'
             return True
         else:
@@ -205,36 +209,69 @@ def possible_moves_from(location):
        for the player at location to move. If there is no player at
        location, returns the empty list, [].
        You can assume that input will always be in correct range."""
-    return ['right','down']
+    pos_moves = []
+
+    directions = ['left', 'right', 'up', 'down']  # define list of possible directions
+
+    if at(location) == '-':
+        return pos_moves
+    else:
+        for direction in directions:
+            if is_legal_move(location, direction) == True:
+                pos_moves.append(direction) #iterates through possible directions and tests if they constitute a legal move, if so append to possible moves list.
+    return pos_moves
+
 
 def is_legal_location(location):
     """Tests if the location is legal on a 5x5 board.
     You can assume that input will be a pair of integer numbers."""
-    return False
+    if location in all_locations():
+        return True
+    else:
+        return False
     
 def is_within_board(location, direction):
     """Tests if the move stays within the boundaries of the board.
     You can assume that input will always be in correct range."""
-    return False
+    if ((is_legal_location(adjacent_location(location, direction)) == True) and
+        (abs(adjacent_location(location, direction)[0] - location[0] <= 1)) and
+            (abs(adjacent_location(location, direction)[1] - location[1] <= 1))):
+        return True
+    else:
+        return False
     
 def all_possible_moves_for(player):
     """Returns every possible move for the player ('M' or 'R') as a list
        (location, direction) tuples.
        You can assume that input will always be in correct range."""
-    return [((0,4), 'up'), ((2,3), 'down')]
+    moves = []
+
+    if has_some_legal_move_somewhere(player) == False:
+        return moves
+    else:
+        for location in all_locations():
+            if at(location) == player:
+                for i in range(len(possible_moves_from(location))):
+                    moves.append((location, possible_moves_from(location)[i]))
+
+    return moves
+
+
 
 def make_move(location, direction):
     """Moves the piece in location in the indicated direction.
     Doesn't check if the move is legal. You can assume that input will always
     be in correct range."""
-    pass # Replace with code
+    board[adjacent_location(location, direction)[0]][adjacent_location(location, direction)[1]] = at(location)
+    board[location[0]][location[1]] = '-'
+
 
 def choose_computer_move(who):
     """The computer chooses a move for a Musketeer (who = 'M') or an
        enemy (who = 'R') and returns it as the tuple (location, direction),
        where a location is a (row, column) tuple as usual.
        You can assume that input will always be in correct range."""
-    return ((0,0), 'up')
+    return all_possible_moves_for(who)[0]
 
 def is_enemy_win():
     """Returns True if all 3 Musketeers are in the same row or column."""
