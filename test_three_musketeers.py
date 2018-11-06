@@ -175,10 +175,19 @@ def test_make_move():
         assert get_board()[1][4] == 'M'
     
 def test_choose_computer_move():
-    assert choose_computer_move('R') == ((2,2), 'down') #should work for both 'M' and 'R'
+
+    assert choose_computer_move('R') == ((1, 2), 'left') #should work for both 'M' and 'R'
+    set_board(board5)
+    assert choose_computer_move('M') == ((2,3), 'down')
+    set_board(board1)
 
 def test_is_enemy_win():
+    assert is_enemy_win() == False
+    set_board(board4)
     assert is_enemy_win() == True
+
+
+
 
 
 

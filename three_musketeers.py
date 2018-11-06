@@ -275,7 +275,17 @@ def choose_computer_move(who):
 
 def is_enemy_win():
     """Returns True if all 3 Musketeers are in the same row or column."""
-    return False
+    musk_loc = []
+
+    for location in all_locations():
+        if at(location) == 'M':
+            musk_loc.append(location)
+
+    if ((musk_loc[0][0] == musk_loc[1][0] and musk_loc[1][0] == musk_loc[2][0]) or
+        (musk_loc[0][1] == musk_loc[1][1] and musk_loc[1][1] == musk_loc[2][1])):
+        return True
+    else:
+        return False
 
 #---------- Communicating with the user ----------
 #----you do not need to modify code below unless you find a bug
