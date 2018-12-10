@@ -71,10 +71,10 @@ def location_to_string(location):
     try:
         if len(location) != 2:
             raise ValueError('Input value is not of length 2. Please try again.')
-        elif location[0] not in range(0, 4) or location[1] not in range(0, 4):
+        elif location[0] not in range(0, 5) or location[1] not in range(0, 5):
             raise ValueError
         else:
-            return (alpha[location[0]] + nums[location[1]]) #return a string with correct characters determined by using the location intergers as the index of the temporary range variables alpha or num
+            return str(alpha[location[0]]) + str(nums[location[1]]) #return a string with correct characters determined by using the location intergers as the index of the temporary range variables alpha or num
 
     except ValueError:
         print("The input value is outside of the correct range, please try again.")
