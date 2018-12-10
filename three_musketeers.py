@@ -12,6 +12,9 @@
 # For brevity, Cardinal Richleau's men are referred to as "enemy".
 # 'pass' is a no-nothing Python statement. Replace it with actual code.
 
+import os
+
+
 def create_board():
     global board
     """Creates the initial Three Musketeers board and makes it globally
@@ -382,10 +385,26 @@ def describe_move(who, location, direction):
           location_to_string(location), 'to',\
           location_to_string(new_location) + ".\n")
 
+def load_game(label):
+    board = create_board()
+
 def start():
     """Plays the Three Musketeers Game."""
+
+    #check if the gamestate file exists, if not create it.
+    if not os.path.exists("gamestates.txt"):
+        gs = open("gamestates.txt", "x")
+
+    print("Welcome to the Three Musketeers Game!")
+    print("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game?", end="")
+    choice = input()
+    if choice == "load":
+        print("Please type in the name of your saved game: ", end="")
+        board = load_game(input())
+    else:
+        board = create_board()
+
     users_side = choose_users_side()
-    board = create_board()
     print_instructions()
     print_board()
     while True:
@@ -404,4 +423,6 @@ def start():
         else:
             print("The Musketeers win!")
             break
-#commentary
+
+
+start()
