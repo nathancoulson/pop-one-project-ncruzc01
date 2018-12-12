@@ -37,12 +37,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="225" />
-          <entry key="py" value="7265" />
+          <entry key="py" value="7503" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7490" />
+          <entry key="Python" value="7728" />
         </counts>
       </usages-collector>
     </session>
@@ -65,12 +65,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/three_musketeers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="409" column="17" lean-forward="true" selection-start-line="409" selection-start-column="17" selection-end-line="409" selection-end-column="17" />
+            <state relative-caret-position="253">
+              <caret line="408" column="24" lean-forward="true" selection-start-line="408" selection-start-column="24" selection-end-line="408" selection-end-column="24" />
               <folding>
-                <marker date="1544463487432" expanded="true" signature="10174:10179" ph="..." />
-                <marker date="1544463487432" expanded="true" signature="11094:11099" ph="..." />
-                <marker date="1544463487432" expanded="true" signature="15514:15543" ph="..." />
+                <marker date="1544620257893" expanded="true" signature="10174:10179" ph="..." />
+                <marker date="1544620257893" expanded="true" signature="11094:11099" ph="..." />
+                <marker date="1544620257893" expanded="true" signature="15514:15543" ph="..." />
               </folding>
             </state>
           </provider>
@@ -90,9 +90,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="491" />
+    <option name="x" value="470" />
     <option name="y" value="23" />
-    <option name="width" value="949" />
+    <option name="width" value="970" />
     <option name="height" value="797" />
   </component>
   <component name="ProjectView">
@@ -201,15 +201,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="491" y="23" width="949" height="797" extended-state="0" />
+    <frame x="470" y="23" width="970" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18857759" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18440464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38014185" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40709218" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -240,12 +240,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/three_musketeers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="409" column="17" lean-forward="true" selection-start-line="409" selection-start-column="17" selection-end-line="409" selection-end-column="17" />
+        <state relative-caret-position="253">
+          <caret line="408" column="24" lean-forward="true" selection-start-line="408" selection-start-column="24" selection-end-line="408" selection-end-column="24" />
           <folding>
-            <marker date="1544463487432" expanded="true" signature="10174:10179" ph="..." />
-            <marker date="1544463487432" expanded="true" signature="11094:11099" ph="..." />
-            <marker date="1544463487432" expanded="true" signature="15514:15543" ph="..." />
+            <marker date="1544620257893" expanded="true" signature="10174:10179" ph="..." />
+            <marker date="1544620257893" expanded="true" signature="11094:11099" ph="..." />
+            <marker date="1544620257893" expanded="true" signature="15514:15543" ph="..." />
           </folding>
         </state>
       </provider>

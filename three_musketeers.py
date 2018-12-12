@@ -394,6 +394,7 @@ def start():
     #check if the gamestate file exists, if not create it.
     if not os.path.exists("gamestates.txt"):
         gs = open("gamestates.txt", "x")
+        gs.close()
 
     print("Welcome to the Three Musketeers Game!")
     print("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game?", end="")
@@ -402,14 +403,21 @@ def start():
         print("Please type in the name of your saved game: ", end="")
         board = load_game(input())
     else:
-        board = create_board()
+        create_board()
 
     users_side = choose_users_side()
     print_instructions()
     print_board()
     while True:
         if has_some_legal_move_somewhere('M'):
+
             board = move_musketeer(users_side)
+
+            #gs = open("gamestates.txt", "a")
+            #gs.write(str(type(board)))
+            #gs.write(str(board))
+            #gs.close()
+
             print_board()
             if is_enemy_win():
                 print("Cardinal Richleau's men win!")
