@@ -29,6 +29,8 @@ def create_board():
               [r, r, r, r, r],
               [m, r, r, r, r] ]
 
+    return board
+
 def set_board(new_board):
     """Replaces the global board with new_board."""
     global board
@@ -45,8 +47,8 @@ def string_to_location(s):
        is outside of the correct range (between 'A' and 'E' for s[0] and
        between '1' and '5' for s[1]
        """
-    alpha = ['A','B','C','D','E'] #create temporary list variables in order to use the index function
-    nums = ['1','2','3','4','5']
+    alpha = ['A', 'B', 'C', 'D', 'E'] #create temporary list variables in order to use the index function
+    nums = ['1', '2', '3', '4', '5']
 
     try:
         if len(s) != 2:
@@ -98,13 +100,13 @@ def adjacent_location(location, direction):
        You can assume that input will always be in correct range."""
 
     if direction == 'up':
-        return ((location[0] - 1), location[1])
+        return location[0] - 1, location[1]
     elif direction == 'left':
-        return (location[0], (location[1] - 1))
+        return location[0], location[1] - 1
     elif direction == 'down':
-        return ((location[0] + 1), location[1])
+        return location[0] + 1, location[1]
     elif direction == 'right':
-        return (location[0], (location[1] + 1))
+        return location[0], location[1] + 1
 
     #return modified location tuple depending on direction
 
@@ -148,6 +150,7 @@ def is_legal_move(location, direction):
     """Tests whether it is legal to move the piece at the location
     in the given direction.
     You can assume that input will always be in correct range."""
+
     try:
         if at(location) == '-':  #check if location contains an empty space '-'
             raise ValueError("Player not at given location, please select either 'M' or 'R' space")
@@ -155,9 +158,11 @@ def is_legal_move(location, direction):
             return is_legal_move_by_musketeer(location, direction) #check if move is legal for Musketeer
         elif at(location) == 'R':
             return is_legal_move_by_enemy(location, direction) #check if move is legal for Enemy
+
     except ValueError:
         print("The input values are not appropriate, please try again")
         raise
+
 
 
 def can_move_piece_at(location):
@@ -167,6 +172,16 @@ def can_move_piece_at(location):
 
     directions = ['left', 'right', 'up', 'down'] #define list of possible directions
 
+    can_move = False
+
+    for direction in directions:
+        if is_legal_move(location, direction) == True:  # check if a move is legal in all directions
+            can_move = True
+            return can_move
+
+    return can_move
+
+    '''
     try:
         if at(location) == '-':  #check if location contains an empty space '-'
             raise ValueError("Player not at given location, please select either 'M' or 'R' space")
@@ -179,7 +194,7 @@ def can_move_piece_at(location):
     except ValueError:
         print("The input values are not appropriate, please try again")
         raise
-
+    '''
 
 
 
@@ -190,22 +205,15 @@ def has_some_legal_move_somewhere(who):
     the legal move is.
     You can assume that input will always be in correct range."""
 
-    p_move = False
+    can_move = False
 
-    try:
-        if who == '-':  #check if location contains an empty space '-'
-            raise ValueError("Player not at given location, please select either 'M' or 'R' space")
-        else:
-            for location in all_locations():
-                if at(location) == who and can_move_piece_at(location) == True: #check for legal moves in all locations occupied by the player
-                    p_move = True
-                    break
+    for location in all_locations():
+        if at(location) == who and can_move_piece_at(location) == True: #check for legal moves in all locations occupied by the player
+            can_move = True
 
-            return p_move
+    return can_move
 
-    except ValueError:
-        print("The input values are not appropriate, please try again")
-        raise
+
 
 def possible_moves_from(location):
     """Returns a list of directions ('left', etc.) in which it is legal
@@ -242,7 +250,7 @@ def is_within_board(location, direction):
         return True
     else:
         return False
-    
+
 def all_possible_moves_for(player):
     """Returns every possible move for the player ('M' or 'R') as a list
        (location, direction) tuples.
@@ -411,14 +419,14 @@ def start():
     while True:
         if has_some_legal_move_somewhere('M'):
 
-            board = move_musketeer(users_side)
-
-            #gs = open("gamestates.txt", "a")
-            #gs.write(str(type(board)))
-            #gs.write(str(board))
-            #gs.close()
+            move_musketeer(users_side)
 
             print_board()
+
+            #gs = open("gamestates.txt", "a")
+            #gs.writelines([str(i) for i in get_board()])
+            #gs.close()
+
             if is_enemy_win():
                 print("Cardinal Richleau's men win!")
                 break
@@ -426,11 +434,10 @@ def start():
             print("The Musketeers win!")
             break
         if has_some_legal_move_somewhere('R'):
-            board = move_enemy(users_side)
+            move_enemy(users_side)
             print_board()
         else:
             print("The Musketeers win!")
             break
-
 
 start()
