@@ -46,6 +46,12 @@ board6 =  [ [_, _, _, _, _],
             [_, _, _, M, R],
             [_, _, _, _, M] ]
 
+board7 =  [ [_, _, _, _, _],
+            [_, _, _, _, _],
+            [_, _, _, M, _],
+            [_, _, _, _, M],
+            [R, _, _, M, _] ]
+
 
 
 
@@ -179,14 +185,27 @@ def test_can_move_piece_at():
     set_board(board1)
 
 def test_has_some_legal_move_somewhere():
-    set_board(board1)
     assert has_some_legal_move_somewhere('M') == True
     assert has_some_legal_move_somewhere('R') == True
+
+    set_board(board6)
+
+    assert has_some_legal_move_somewhere('M') == True
+    assert has_some_legal_move_somewhere('R') == False
+
+    set_board(board7)
+
+    assert has_some_legal_move_somewhere('M') == False
+    assert has_some_legal_move_somewhere('R') == True
+
     # Eventually put at least three additional tests here
     # with at least one additional board
 
 
 def test_possible_moves_from():
+
+    set_board(board1)
+
     assert possible_moves_from((2, 1)) == ['left', 'up']
     assert possible_moves_from((0, 3)) == []
     assert possible_moves_from((4, 3)) == ['left', 'right', 'up']
@@ -198,11 +217,14 @@ def test_possible_moves_from():
 
 
 def test_is_legal_location():
-    assert is_legal_location((2,2)) == True
-    assert is_legal_location((1,1)) == True
+    assert is_legal_location((2, 2)) == True
+    assert is_legal_location((1, 1)) == True
     assert is_legal_location((-1, 4)) == False
     assert is_legal_location((3, 7)) == False
     assert is_legal_location((4, 4)) == True
+    assert is_legal_location((0, 4)) == True
+    assert is_legal_location((10, 2)) == False
+    assert is_legal_location((3, -4)) == False
 
 def test_is_within_board():
     assert is_within_board((0, 0), "right") == True
@@ -234,12 +256,18 @@ def test_choose_computer_move():
 
     assert choose_computer_move('R') == ((1, 2), 'left') #should work for both 'M' and 'R'
     set_board(board5)
-    assert choose_computer_move('M') == ((2,3), 'down')
+    assert choose_computer_move('M') == ((2, 3), 'down')
     set_board(board1)
 
 def test_is_enemy_win():
     assert is_enemy_win() == False
+
+    set_board(board2)
+
+    assert is_enemy_win() == False
+
     set_board(board4)
+
     assert is_enemy_win() == True
 
 

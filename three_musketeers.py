@@ -181,23 +181,6 @@ def can_move_piece_at(location):
 
     return can_move
 
-    '''
-    try:
-        if at(location) == '-':  #check if location contains an empty space '-'
-            raise ValueError("Player not at given location, please select either 'M' or 'R' space")
-        else:
-            for direction in directions:
-                if is_legal_move(location, direction) == True: #check if a move is legal in all directions
-                    return True
-                else:
-                    return False
-    except ValueError:
-        print("The input values are not appropriate, please try again")
-        raise
-    '''
-
-
-
 
 def has_some_legal_move_somewhere(who):
     """Tests whether a legal move exists for player "who" (which must
@@ -205,13 +188,13 @@ def has_some_legal_move_somewhere(who):
     the legal move is.
     You can assume that input will always be in correct range."""
 
-    can_move = False
+    has_move = False
 
     for location in all_locations():
         if at(location) == who and can_move_piece_at(location) == True: #check for legal moves in all locations occupied by the player
-            can_move = True
+            has_move = True
 
-    return can_move
+    return has_move
 
 
 
@@ -439,5 +422,3 @@ def start():
         else:
             print("The Musketeers win!")
             break
-
-start()
