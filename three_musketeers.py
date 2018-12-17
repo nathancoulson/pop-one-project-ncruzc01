@@ -13,7 +13,7 @@
 # 'pass' is a no-nothing Python statement. Replace it with actual code.
 
 import os
-
+import datetime
 
 def create_board():
     global board
@@ -379,12 +379,31 @@ def describe_move(who, location, direction):
 def load_game(label):
     board = create_board()
 
+def save_game(label, users_side):
+    with open("gamestates.txt", "r") as file:
+        data = file.readlines()
+
+        saved_games = int(data[0].split()[4]) + 1
+
+        data[0] = "Number of Saved Games: {}".format(saved_games) + "\n"
+
+    with open("gamestates.txt", "w") as file:
+        file.writelines(data)
+
+    with open("gamestates.txt", "a") as file:
+        file.write("Saved Game ID: " + str(saved_games) + " " + "Saved game label: " + label + " " + "Playing as: " + " " + users_side + " " + "Game saved at: " + " " +
+             str(datetime.datetime.now().replace(microsecond=0)) + "\n")
+        file.writelines([str(i) + "\n" for i in get_board()])
+        file.writelines("---------------------------------------------------------" + "\n")
+
+
 def start():
     """Plays the Three Musketeers Game."""
 
     #check if the gamestate file exists, if not create it.
     if not os.path.exists("gamestates.txt"):
-        gs = open("gamestates.txt", "x")
+        gs = open("gamestates.txt", "w")
+        gs.write("Number of Saved Games: 0" + "\n")
         gs.close()
 
     print("Welcome to the Three Musketeers Game!")
@@ -406,10 +425,6 @@ def start():
 
             print_board()
 
-            #gs = open("gamestates.txt", "a")
-            #gs.writelines([str(i) for i in get_board()])
-            #gs.close()
-
             if is_enemy_win():
                 print("Cardinal Richleau's men win!")
                 break
@@ -419,6 +434,14 @@ def start():
         if has_some_legal_move_somewhere('R'):
             move_enemy(users_side)
             print_board()
+
+            answer = input("Do you want to save your game at this point? (answer yes or no): ")
+            if answer == "yes" or answer == "y":
+                label = input("Please name your saved game, for example \"nathangame1\": ")
+                save_game(label, users_side)
+
         else:
             print("The Musketeers win!")
             break
+
+start()

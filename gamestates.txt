@@ -1,0 +1,22 @@
+Number of Saved Games: 3
+Saved Game ID: 1 Saved game label: nat game 81 Playing as:  M Game saved at:  2018-12-17 23:02:56
+['R', 'R', 'R', 'R', 'M']
+['R', 'R', 'R', 'R', 'R']
+['R', 'R', 'M', 'R', 'R']
+['M', 'R', 'R', 'R', 'R']
+['R', '-', 'R', 'R', 'R']
+---------------------------------------------------------
+Saved Game ID: 2 Saved game label: natgame90 Playing as:  M Game saved at:  2018-12-17 23:03:13
+['R', 'R', 'R', 'R', 'M']
+['R', 'R', '-', 'R', 'R']
+['R', 'R', 'R', 'M', 'R']
+['M', 'R', 'R', 'R', 'R']
+['R', '-', 'R', 'R', 'R']
+---------------------------------------------------------
+Saved Game ID: 3 Saved game label: natg12 Playing as:  M Game saved at:  2018-12-17 23:03:24
+['R', 'R', '-', 'R', '-']
+['R', 'R', 'R', 'R', 'M']
+['R', 'R', 'R', 'M', 'R']
+['M', 'R', 'R', 'R', 'R']
+['R', '-', 'R', 'R', 'R']
+---------------------------------------------------------
