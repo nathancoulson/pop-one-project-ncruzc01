@@ -14,6 +14,7 @@
 
 import os
 import datetime
+import re
 
 def create_board():
     global board
@@ -376,8 +377,45 @@ def describe_move(who, location, direction):
           location_to_string(location), 'to',\
           location_to_string(new_location) + ".\n")
 
-def load_game(label):
-    board = create_board()
+def load_game(game_id):
+    create_board()
+
+    squares = []
+
+    with open("gamestates.txt", "r") as file:
+        data = file.readlines()
+
+        for i in range(1, len(data)):
+            if data[i][0] == 'S':
+                if data[i].split()[3] == game_id:
+                    playing_as = re.findall(r':..[MR-]', data[i])
+                    for j in range(i + 1, i + 6):
+                        for char in list(data[j]):
+                            if char == "R" or char == "M" or char == "-":
+                                squares.append(char)
+
+
+
+    loaded_board = [squares[i:i+5] for i in range(0, 25, 5)]
+
+    set_board(loaded_board)
+
+    return str(playing_as[0][-1])
+
+
+
+
+
+
+
+def list_saved_games():
+    with open("gamestates.txt", "r") as file:
+        data = file.readlines()
+
+        for line in data:
+            if line[0] == 'S':
+                print(line)
+                print("---------------------------------------------------------")
 
 def save_game(label, users_side):
     with open("gamestates.txt", "r") as file:
@@ -407,15 +445,16 @@ def start():
         gs.close()
 
     print("Welcome to the Three Musketeers Game!")
-    print("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game?", end="")
+    print("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game? ", end="")
     choice = input()
     if choice == "load":
-        print("Please type in the name of your saved game: ", end="")
-        board = load_game(input())
+        list_saved_games()
+        game_id = input("Please type in the ID of the game you want to load: ")
+        users_side = load_game(game_id)
     else:
         create_board()
+        users_side = choose_users_side()
 
-    users_side = choose_users_side()
     print_instructions()
     print_board()
     while True:

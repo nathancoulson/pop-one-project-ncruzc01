@@ -16,14 +16,14 @@
     <session id="1901690960">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,12 +39,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="253" />
-          <entry key="py" value="9641" />
+          <entry key="py" value="10772" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="9894" />
+          <entry key="Python" value="11025" />
         </counts>
       </usages-collector>
     </session>
@@ -54,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_three_musketeers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="3990">
               <caret line="266" column="34" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -69,14 +69,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/three_musketeers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="398" lean-forward="true" selection-start-line="398" selection-end-line="398" />
+            <state relative-caret-position="-367">
+              <caret line="405" lean-forward="true" selection-start-line="405" selection-end-line="405" />
               <folding>
                 <element signature="e#675#684#0" expanded="true" />
-                <marker date="1545087725211" expanded="true" signature="9527:9532" ph="..." />
-                <marker date="1545087725211" expanded="true" signature="10447:10452" ph="..." />
-                <marker date="1545087725211" expanded="true" signature="14867:15655" ph="..." />
-                <marker date="1545087725211" expanded="true" signature="15256:15655" ph="..." />
+                <marker date="1545095798106" expanded="true" signature="9537:9542" ph="..." />
+                <marker date="1545095798106" expanded="true" signature="10457:10462" ph="..." />
               </folding>
             </state>
           </provider>
@@ -125,6 +123,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last.edited.regexp" value="Saved Game ID: 2 Saved game label: game2 Playing as:  M Game saved at:  2018-12-18 00:43:25" />
     <property name="settings.editor.selected.configurable" value="http.certificates" />
   </component>
   <component name="RunDashboard">
@@ -208,14 +207,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-95" width="1280" height="1336" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13899921" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13899921" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22025724" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22025724" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -223,7 +221,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.39849058" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.34113207" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.34083602" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -235,7 +233,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test_three_musketeers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="3990">
           <caret line="266" column="34" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -248,14 +246,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/three_musketeers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="398" lean-forward="true" selection-start-line="398" selection-end-line="398" />
+        <state relative-caret-position="-367">
+          <caret line="405" lean-forward="true" selection-start-line="405" selection-end-line="405" />
           <folding>
             <element signature="e#675#684#0" expanded="true" />
-            <marker date="1545087725211" expanded="true" signature="9527:9532" ph="..." />
-            <marker date="1545087725211" expanded="true" signature="10447:10452" ph="..." />
-            <marker date="1545087725211" expanded="true" signature="14867:15655" ph="..." />
-            <marker date="1545087725211" expanded="true" signature="15256:15655" ph="..." />
+            <marker date="1545095798106" expanded="true" signature="9537:9542" ph="..." />
+            <marker date="1545095798106" expanded="true" signature="10457:10462" ph="..." />
           </folding>
         </state>
       </provider>
