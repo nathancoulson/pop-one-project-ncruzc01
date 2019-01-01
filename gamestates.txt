@@ -1,4 +1,4 @@
-Number of Saved Games: 5
+Number of Saved Games: 6
 Saved Game ID: 1 Saved game label: gamea Playing as:  M Game saved at:  2018-12-18 01:10:59
 ['R', 'R', 'R', 'R', 'M']
 ['R', 'R', 'M', 'R', 'R']
@@ -33,4 +33,11 @@ Saved Game ID: 5 Saved game label: screwed up game 2 : : Playing as:  M Game sav
 ['R', 'R', 'R', 'M', 'R']
 ['R', 'R', 'R', 'R', 'R']
 ['-', 'M', 'R', 'R', 'R']
+---------------------------------------------------------
+Saved Game ID: 6 Saved game label: nathangame5 Playing as:  M Game saved at:  2018-12-29 13:32:09
+['R', '-', 'R', 'R', 'M']
+['R', 'R', 'R', 'M', 'R']
+['R', 'R', 'R', '-', 'R']
+['M', 'R', 'R', 'R', 'R']
+['-', 'R', 'R', 'R', 'R']
 ---------------------------------------------------------

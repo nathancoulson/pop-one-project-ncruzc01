@@ -404,10 +404,6 @@ def load_game(game_id):
 
 
 
-
-
-
-
 def list_saved_games():
     with open("gamestates.txt", "r") as file:
         data = file.readlines()
@@ -483,4 +479,3 @@ def start():
             print("The Musketeers win!")
             break
 
-start()

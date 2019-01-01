@@ -74,6 +74,11 @@ def test_set_board():
     assert at((3, 2)) == R
     assert at((4, 2)) == M
 
+    set_board(board5)
+    assert at((2, 3)) == M
+    assert at((2, 2)) == _
+    assert at((4, 0)) == R
+
 def test_get_board():
     set_board(board1)
     assert board1 == get_board()
@@ -83,10 +88,11 @@ def test_get_board():
 
     set_board(board4)
     assert board4 == get_board()
-
-    set_board(board1)
+    assert len(board4) == 5
+    assert len(board4[0]) == 5
 
 def test_string_to_location():
+    set_board(board1)
     with pytest.raises(ValueError):
         string_to_location('X3')
     with pytest.raises(ValueError):
@@ -96,10 +102,18 @@ def test_string_to_location():
     assert string_to_location('E2') == (4, 1)
     assert string_to_location('D4') == (3, 3)
 
-    #eventually add at least one more exception test and two more
-    #test with correct inputs
+    set_board(board2)
+    with pytest.raises(ValueError):
+        string_to_location('X3T6')
+    with pytest.raises(ValueError):
+        string_to_location('U8')
+    assert string_to_location('C3') == (2, 2)
+    assert string_to_location('A5') == (0, 4)
+    assert string_to_location('E1') == (4, 0)
+    assert string_to_location('D2') == (3, 1)
 
 def test_location_to_string():
+    set_board(board1)
     with pytest.raises(ValueError):
         location_to_string((8,3))
     with pytest.raises(ValueError):
@@ -110,8 +124,21 @@ def test_location_to_string():
     assert location_to_string((3, 3)) == 'D4'
     assert location_to_string((1, 2)) == 'B3'
 
+    set_board(board4)
+    with pytest.raises(ValueError):
+        location_to_string((2,3,4))
+    with pytest.raises(ValueError):
+        location_to_string(('Z', 1))
+    assert location_to_string((3, 4)) == 'D5'
+    assert location_to_string((0, 2)) == 'A3'
+    assert location_to_string((2, 0)) == 'C1'
+    assert location_to_string((4, 4)) == 'E5'
+    assert location_to_string((1, 3)) == 'B4'
+
+
 
 def test_at():
+    set_board(board1)
     assert at((0, 3)) == 'M'
     assert at((1, 2)) == 'R'
     assert at((1, 3)) == 'M'
@@ -120,11 +147,13 @@ def test_at():
     assert at((4, 3)) == 'R'
 
 def test_all_locations():
+    set_board(board1)
     assert len(all_locations()) == 25
     assert all_locations()[0] == (0, 0)
     assert all_locations()[2][1] == 2
 
 def test_adjacent_location():
+    set_board(board1)
     assert adjacent_location((0, 0), "right") == (0, 1)
     assert adjacent_location((2, 4), "left") == (2, 3)
     assert adjacent_location((1, 4), "down") == (2, 4)
@@ -134,6 +163,11 @@ def test_adjacent_location():
     assert adjacent_location((5, 6), "down") == (6, 6)
     
 def test_is_legal_move_by_musketeer():
+    set_board(board1)
+    with pytest.raises(ValueError):
+        is_legal_move_by_musketeer((1, 2), "up")
+    with pytest.raises(ValueError):
+        is_legal_move_by_musketeer((4, 3), "left")
     assert is_legal_move_by_musketeer((1, 3), "down") == True
     assert is_legal_move_by_musketeer((0, 3), "left") == False
     assert is_legal_move_by_musketeer((2, 2), "up") == True
@@ -144,6 +178,11 @@ def test_is_legal_move_by_musketeer():
     assert is_legal_move_by_musketeer((1, 3), "right") == False
     
 def test_is_legal_move_by_enemy():
+    set_board(board1)
+    with pytest.raises(ValueError):
+        is_legal_move_by_enemy((2, 2), "left")
+    with pytest.raises(ValueError):
+        is_legal_move_by_enemy((1, 3), "down")
     assert is_legal_move_by_enemy((1, 2), "up") == True
     assert is_legal_move_by_enemy((2, 1), "right") == False
     assert is_legal_move_by_enemy((4, 3), "left") == True
@@ -155,6 +194,7 @@ def test_is_legal_move_by_enemy():
 
 
 def test_is_legal_move():
+    set_board(board1)
     with pytest.raises(ValueError):
         is_legal_move((0, 4), "up")
     with pytest.raises(ValueError):
@@ -171,6 +211,7 @@ def test_is_legal_move():
     assert is_legal_move((2, 2), "down") == False
 
 def test_can_move_piece_at():
+    set_board(board1)
     assert can_move_piece_at((2, 1)) == True
     assert can_move_piece_at((0, 3)) == False
     assert can_move_piece_at((4, 3)) == True
