@@ -48,18 +48,18 @@ def string_to_location(s):
        is outside of the correct range (between 'A' and 'E' for s[0] and
        between '1' and '5' for s[1]
        """
-    alpha = ['A', 'B', 'C', 'D', 'E'] #create temporary list variables in order to use the index function
+    # create temporary list variables in order to use the index function
+    alpha = ['A', 'B', 'C', 'D', 'E']
     nums = ['1', '2', '3', '4', '5']
 
     try:
         if len(s) != 2:
             raise ValueError('Input value is not of length 2. Please try again.')
-        elif s[0] not in alpha:
-            raise ValueError
-        elif s[1] not in nums:
+        elif s[0] not in alpha or s[1] not in nums:
             raise ValueError
         else:
-            return (alpha.index(s[0]), nums.index(s[1])) #return a tuple with correct location determined by finding the index of the temporary range variables alpha or num
+            # return a tuple of indexes with correct location determined by matching the elements of lists alpha or num
+            return (alpha.index(s[0]), nums.index(s[1]))
 
     except ValueError:
         print("The input value is outside of the correct range, please try again.")
@@ -71,7 +71,8 @@ def location_to_string(location):
     ValueError exception if the input is outside of the correct range
     """
 
-    alpha = ['A', 'B', 'C', 'D', 'E'] #create temporary list variables in order to use the index function
+    # create temporary list variables in order to use the index function
+    alpha = ['A', 'B', 'C', 'D', 'E']
     nums = ['1', '2', '3', '4', '5']
 
     try:
@@ -80,7 +81,8 @@ def location_to_string(location):
         elif location[0] not in range(0, 5) or location[1] not in range(0, 5):
             raise ValueError
         else:
-            return str(alpha[location[0]]) + str(nums[location[1]]) #return a string with correct characters determined by using the location intergers as the index of the temporary range variables alpha or num
+            # return a string with correct characters determined by the matching the indexes of alpha or num
+            return str(alpha[location[0]]) + str(nums[location[1]])
 
     except ValueError:
         print("The input value is outside of the correct range, please try again.")
@@ -93,12 +95,16 @@ def at(location):
 
 def all_locations():
     """Returns a list of all 25 locations on the board."""
-    return [(i,j) for i in range(0, 5) for j in range(0,5)] #return a nested list comprehension which creates the list of all 25 possible locations
+
+    # return a nested list comprehension which creates the list of all 25 possible locations
+    return [(i,j) for i in range(0, 5) for j in range(0,5)]
 
 def adjacent_location(location, direction):
     """Return the location next to the given one, in the given direction.
        Does not check if the location returned is legal on a 5x5 board.
        You can assume that input will always be in correct range."""
+
+    # return modified location tuple depending on direction argument
 
     if direction == 'up':
         return location[0] - 1, location[1]
@@ -109,13 +115,12 @@ def adjacent_location(location, direction):
     elif direction == 'right':
         return location[0], location[1] + 1
 
-    #return modified location tuple depending on direction
-
 
 def is_legal_move_by_musketeer(location, direction):
     """Tests if the Musketeer at the location can move in the direction.
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'M'"""
+
     try:
         if at(location) != 'M': #check if location contains a Musketeer 'M'
             raise ValueError("Musketeer not at given location, choose another location")
@@ -125,6 +130,7 @@ def is_legal_move_by_musketeer(location, direction):
             return True
         else:
             return False
+
     except ValueError:
         print("The input values are not appropriate, please try again")
         raise
@@ -134,6 +140,7 @@ def is_legal_move_by_enemy(location, direction):
     """Tests if the enemy at the location can move in the direction.
     You can assume that input will always be in correct range. Raises
     ValueError exception if at(location) is not 'R'"""
+
     try:
         if at(location) != 'R': #check if location contains an enemy 'R'
             raise ValueError("Enemy not at given location, choose another location")
@@ -143,9 +150,11 @@ def is_legal_move_by_enemy(location, direction):
             return True
         else:
             return False
+
     except ValueError:
         print("The input values are not appropriate, please try again")
         raise
+
 
 def is_legal_move(location, direction):
     """Tests whether it is legal to move the piece at the location
@@ -165,18 +174,17 @@ def is_legal_move(location, direction):
         raise
 
 
-
 def can_move_piece_at(location):
     """Tests whether the player at the location has at least one move available.
     You can assume that input will always be in correct range.
     You can assume that input will always be in correct range."""
 
-    directions = ['left', 'right', 'up', 'down'] #define list of possible directions
+    # loop through all possible directions to check if a legal move is available, return False if not.
 
     can_move = False
 
-    for direction in directions:
-        if is_legal_move(location, direction) == True:  # check if a move is legal in all directions
+    for direction in ['left', 'right', 'up', 'down']:
+        if is_legal_move(location, direction) == True:
             can_move = True
             return can_move
 
@@ -189,11 +197,14 @@ def has_some_legal_move_somewhere(who):
     the legal move is.
     You can assume that input will always be in correct range."""
 
+    # check for legal moves in all locations occupied by the player, return False if none are found.
+
     has_move = False
 
     for location in all_locations():
-        if at(location) == who and can_move_piece_at(location) == True: #check for legal moves in all locations occupied by the player
+        if at(location) == who and can_move_piece_at(location) == True:
             has_move = True
+            return has_move
 
     return has_move
 
@@ -204,22 +215,24 @@ def possible_moves_from(location):
        for the player at location to move. If there is no player at
        location, returns the empty list, [].
        You can assume that input will always be in correct range."""
-    pos_moves = []
 
-    directions = ['left', 'right', 'up', 'down']  # define list of possible directions
+    pos_moves = []
 
     if at(location) == '-':
         return pos_moves
     else:
-        for direction in directions:
+        # iterates through possible directions to check if legal move exists, if so appends to possible moves list.
+        for direction in ['left', 'right', 'up', 'down']:
             if is_legal_move(location, direction) == True:
-                pos_moves.append(direction) #iterates through possible directions and tests if they constitute a legal move, if so append to possible moves list.
+                pos_moves.append(direction)
+
     return pos_moves
 
 
 def is_legal_location(location):
     """Tests if the location is legal on a 5x5 board.
     You can assume that input will be a pair of integer numbers."""
+
     if location in all_locations():
         return True
     else:
@@ -228,9 +241,13 @@ def is_legal_location(location):
 def is_within_board(location, direction):
     """Tests if the move stays within the boundaries of the board.
     You can assume that input will always be in correct range."""
+
+    # checks if adjacent location is a legal location on the board AND
+    # checks if the absolute change in values is equal to 1 - this prevents illegal movement from board edges
+
     if ((is_legal_location(adjacent_location(location, direction)) == True) and
         (abs(adjacent_location(location, direction)[0] - location[0] <= 1)) and
-            (abs(adjacent_location(location, direction)[1] - location[1] <= 1))):
+        (abs(adjacent_location(location, direction)[1] - location[1] <= 1))):
         return True
     else:
         return False
@@ -239,25 +256,30 @@ def all_possible_moves_for(player):
     """Returns every possible move for the player ('M' or 'R') as a list
        (location, direction) tuples.
        You can assume that input will always be in correct range."""
+
+    # checks each location for player, then loops through the possible moves appending them to the moves list.
+
     moves = []
 
-    if has_some_legal_move_somewhere(player) == False:
-        return moves
-    else:
-        for location in all_locations():
-            if at(location) == player:
-                for i in range(len(possible_moves_from(location))):
-                    moves.append((location, possible_moves_from(location)[i]))
+    for location in all_locations():
+        if at(location) == player:
+            for i in range(len(possible_moves_from(location))):
+                moves.append((location, possible_moves_from(location)[i]))
 
     return moves
-
 
 
 def make_move(location, direction):
     """Moves the piece in location in the indicated direction.
     Doesn't check if the move is legal. You can assume that input will always
     be in correct range."""
+
+    # sets adjacent location equal to the contents of the given locations i.e. the player piece
+
     board[adjacent_location(location, direction)[0]][adjacent_location(location, direction)[1]] = at(location)
+
+    # sets the given location, i.e. where the player moved from, equal to empty space '-'
+
     board[location[0]][location[1]] = '-'
 
 
@@ -266,15 +288,23 @@ def choose_computer_move(who):
        enemy (who = 'R') and returns it as the tuple (location, direction),
        where a location is a (row, column) tuple as usual.
        You can assume that input will always be in correct range."""
+
+    # returns the first item in the list of possible moves for a player, i.e. "no strategy, only legality!"
+
     return all_possible_moves_for(who)[0]
 
 def is_enemy_win():
     """Returns True if all 3 Musketeers are in the same row or column."""
+
+    # creates a list of current Musketeer locations
+
     musk_loc = []
 
     for location in all_locations():
         if at(location) == 'M':
             musk_loc.append(location)
+
+    # checks if Musketeers are in the same column or the same row, if so return True (enemy wins), if not return False.
 
     if ((musk_loc[0][0] == musk_loc[1][0] and musk_loc[1][0] == musk_loc[2][0]) or
         (musk_loc[0][1] == musk_loc[1][1] and musk_loc[1][1] == musk_loc[2][1])):
@@ -319,11 +349,15 @@ def choose_users_side():
             user = answer.upper()[0]
     return user
 
-def get_users_move():
+def get_users_move(users_side):
     """Gets a legal move from the user, and returns it as a
        (location, direction) tuple."""    
     directions = {'L':'left', 'R':'right', 'U':'up', 'D':'down'}
-    move = input("Your move? ").upper().replace(' ', '')
+    move = input("Type \"menu\" for more options or continue the game below \nEnter your next move: ").upper().replace(' ', '')
+
+    if move.lower().replace(' ', '') == 'menu':
+        open_menu(users_side)
+
     if (len(move) >= 3
             and move[0] in 'ABCDE'
             and move[1] in '12345'
@@ -333,13 +367,13 @@ def get_users_move():
         if is_legal_move(location, direction):
             return (location, direction)
     print("Illegal move--'" + move + "'")
-    return get_users_move()
+    return get_users_move(users_side)
 
 def move_musketeer(users_side):
     """Gets the Musketeer's move (from either the user or the computer)
        and makes it."""
     if users_side == 'M':
-        (location, direction) = get_users_move()
+        (location, direction) = get_users_move(users_side)
         if at(location) == 'M':
             if is_legal_move(location, direction):
                 make_move(location, direction)
@@ -356,7 +390,7 @@ def move_enemy(users_side):
     """Gets the enemy's move (from either the user or the computer)
        and makes it."""
     if users_side == 'R':
-        (location, direction) = get_users_move()
+        (location, direction) = get_users_move(users_side)
         if at(location) == 'R':
             if is_legal_move(location, direction):
                 make_move(location, direction)
@@ -402,8 +436,6 @@ def load_game(game_id):
 
     return str(playing_as[0][-1])
 
-
-
 def list_saved_games():
     with open("gamestates.txt", "r") as file:
         data = file.readlines()
@@ -430,6 +462,42 @@ def save_game(label, users_side):
         file.writelines([str(i) + "\n" for i in get_board()])
         file.writelines("---------------------------------------------------------" + "\n")
 
+def open_menu(users_side):
+
+    print("""
+    ---------GAME MENU---------\n
+    **Type \"save\" to save your current game**\n
+    **Type \"load\" to load a previous game**\n
+    **Type \"new\" to start a new game**\n
+    **Type \"exit\" to exit the game**\n
+    """)
+
+    choice = input("Please choose an option: ")
+
+    if choice == "save":
+        label = input("Please name your saved game, for example \"nathangame1\": ")
+        save_game(label, users_side)
+        print("""Now choose the saved game you want to play.\n
+        The one with the most recent timestamp is the one you just saved.""")
+        list_saved_games()
+        game_id = input("Please type in the ID of the game you want to load: ")
+        users_side = load_game(game_id)
+        begin_game(users_side)
+    elif choice == "load":
+        list_saved_games()
+        game_id = input("Please type in the ID of the game you want to load: ")
+        users_side = load_game(game_id)
+        begin_game(users_side)
+    elif choice == "new":
+        create_board()
+        users_side = choose_users_side()
+        print_instructions()
+        begin_game(users_side)
+    elif choice == "exit":
+        answer = input("Are you sure (yes/no)? ")
+        if answer == "yes" or "y":
+            quit()
+
 
 def start():
     """Plays the Three Musketeers Game."""
@@ -452,7 +520,11 @@ def start():
         users_side = choose_users_side()
 
     print_instructions()
+    begin_game(users_side)
+
+def begin_game(users_side):
     print_board()
+    print("You are playing as: {}".format(users_side))
     while True:
         if has_some_legal_move_somewhere('M'):
 
@@ -469,13 +541,6 @@ def start():
         if has_some_legal_move_somewhere('R'):
             move_enemy(users_side)
             print_board()
-
-            answer = input("Do you want to save your game at this point? (answer yes or no): ")
-            if answer == "yes" or answer == "y":
-                label = input("Please name your saved game, for example \"nathangame1\": ")
-                save_game(label, users_side)
-
         else:
             print("The Musketeers win!")
             break
-

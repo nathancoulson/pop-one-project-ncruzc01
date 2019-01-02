@@ -1,7 +1,5 @@
 work to do:
 
-add additional tests for all - using new boards. Explicitly set boards at the start of each test.
-
 Comment all new code - especially extension work.
 
 --
