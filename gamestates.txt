@@ -1,4 +1,4 @@
-Number of Saved Games: 9
+Number of Saved Games: 11
 Saved Game ID: 1 Saved game label: gamea Playing as:  M Game saved at:  2018-12-18 01:10:59
 ['R', 'R', 'R', 'R', 'M']
 ['R', 'R', 'M', 'R', 'R']
@@ -59,6 +59,20 @@ Saved Game ID: 9 Saved game label: test2 Playing as:  M Game saved at:  2019-01-
 ['R', 'R', '-', 'R', 'M']
 ['R', 'M', 'R', 'R', 'R']
 ['R', '-', 'R', 'R', 'R']
+['R', 'R', 'R', 'R', 'R']
+['M', 'R', 'R', 'R', 'R']
+---------------------------------------------------------
+Saved Game ID: 10 Saved game label: test6 Playing as:  M Game saved at:  2019-01-02 14:34:31
+['R', '-', 'R', 'R', 'M']
+['R', 'R', 'R', 'M', 'R']
+['R', 'R', 'R', '-', 'R']
+['M', 'R', 'R', 'R', 'R']
+['-', 'R', 'R', 'R', 'R']
+---------------------------------------------------------
+Saved Game ID: 11 Saved game label: test10 Playing as:  R Game saved at:  2019-01-02 15:23:24
+['R', 'M', '-', 'R', 'R']
+['R', 'R', 'R', '-', '-']
+['R', 'R', 'M', 'R', 'R']
 ['R', 'R', 'R', 'R', 'R']
 ['M', 'R', 'R', 'R', 'R']
 ---------------------------------------------------------

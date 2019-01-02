@@ -353,7 +353,10 @@ def get_users_move(users_side):
     """Gets a legal move from the user, and returns it as a
        (location, direction) tuple."""    
     directions = {'L':'left', 'R':'right', 'U':'up', 'D':'down'}
-    move = input("Type \"menu\" for more options or continue the game below \nEnter your next move: ").upper().replace(' ', '')
+
+    # added option to open a game menu instead of continuing with the current game
+
+    move = input("Type \"menu\" for more options or continue the current game below \nEnter your next move: ").upper().replace(' ', '')
 
     if move.lower().replace(' ', '') == 'menu':
         open_menu(users_side)
@@ -419,18 +422,28 @@ def load_game(game_id):
     with open("gamestates.txt", "r") as file:
         data = file.readlines()
 
+        # parse the list "data" to find the line with the matching game_id
+
         for i in range(1, len(data)):
             if data[i][0] == 'S':
                 if data[i].split()[3] == game_id:
+
+                    # set playing_as to the correct playing_as symbol in the line, uses regex
+
                     playing_as = re.findall(r':..[MR-]', data[i])
+
+                    # loops over the next 5 lines (boardstate) and appends each square to the list "squares"
+
                     for j in range(i + 1, i + 6):
                         for char in list(data[j]):
                             if char == "R" or char == "M" or char == "-":
                                 squares.append(char)
 
-
+    # uses a list comprehension to construct a 5 x 5 matrix (board) from the squares list
 
     loaded_board = [squares[i:i+5] for i in range(0, 25, 5)]
+
+    # sets loaded_board to current global game board and returns the playing_as variable
 
     set_board(loaded_board)
 
@@ -439,6 +452,8 @@ def load_game(game_id):
 def list_saved_games():
     with open("gamestates.txt", "r") as file:
         data = file.readlines()
+
+    # loops over all lines in gamestates file, prints lines with game data i.e. beginning with "S" or "Saved"
 
         for line in data:
             if line[0] == 'S':
@@ -449,12 +464,15 @@ def save_game(label, users_side):
     with open("gamestates.txt", "r") as file:
         data = file.readlines()
 
-        saved_games = int(data[0].split()[4]) + 1
+    # read and update the number of saved games recorded on the first line of the gamestates file
 
+        saved_games = int(data[0].split()[4]) + 1
         data[0] = "Number of Saved Games: {}".format(saved_games) + "\n"
 
     with open("gamestates.txt", "w") as file:
         file.writelines(data)
+
+    # amend gamestates file (next empty line) with new game data: label, user_side, time and boardstate
 
     with open("gamestates.txt", "a") as file:
         file.write("Saved Game ID: " + str(saved_games) + " " + "Saved game label: " + label + " " + "Playing as: " + " " + users_side + " " + "Game saved at: " + " " +
@@ -462,67 +480,116 @@ def save_game(label, users_side):
         file.writelines([str(i) + "\n" for i in get_board()])
         file.writelines("---------------------------------------------------------" + "\n")
 
+def start_loaded_game():
+
+    # list saved games and prompt user to choose one, then begin game from the chosen gamestate
+
+    list_saved_games()
+    game_id = input("Please type in the ID of the game you want to load: ")
+    users_side = load_game(game_id)
+    begin_game(users_side)
+
+def start_new_game():
+
+    # reset the global board, prompt user to choose a side, and begin new game
+
+    create_board()
+    users_side = choose_users_side()
+    print_instructions()
+    begin_game(users_side)
+
 def open_menu(users_side):
 
     print("""
-    ---------GAME MENU---------\n
-    **Type \"save\" to save your current game**\n
-    **Type \"load\" to load a previous game**\n
-    **Type \"new\" to start a new game**\n
-    **Type \"exit\" to exit the game**\n
+    +++++ You Are Playing The Three Musketeers! +++++\n
+    --------------------GAME MENU--------------------\n
+    **** Type \"save\" to save your current game ****\n
+    **** Type \"load\" to load a previous game   ****\n
+    **** Type \"new\" to start a new game        ****\n
+    **** Type \"exit\" to exit the game          ****\n
+    **** Type anything else to continue!       ****\n
     """)
 
-    choice = input("Please choose an option: ")
+    choice = input("Please choose an option: ").lower().replace(" ", "")
+
+    # based on chosen option execute existing game function i.e. save_game, start_loaded_game or start_new_game
 
     if choice == "save":
+
+        # passes label and user_side to the save_game function then asks user to choose a saved game to play
+
         label = input("Please name your saved game, for example \"nathangame1\": ")
         save_game(label, users_side)
         print("""Now choose the saved game you want to play.\n
-        The one with the most recent timestamp is the one you just saved.""")
-        list_saved_games()
-        game_id = input("Please type in the ID of the game you want to load: ")
-        users_side = load_game(game_id)
-        begin_game(users_side)
+        The game with the most recent timestamp is the one you just saved.""")
+        start_loaded_game()
     elif choice == "load":
-        list_saved_games()
-        game_id = input("Please type in the ID of the game you want to load: ")
-        users_side = load_game(game_id)
-        begin_game(users_side)
+        start_loaded_game()
     elif choice == "new":
-        create_board()
-        users_side = choose_users_side()
-        print_instructions()
-        begin_game(users_side)
+        start_new_game()
     elif choice == "exit":
+
+        # confirms if the users wants to quit, if so uses the Python quit() function
+
         answer = input("Are you sure (yes/no)? ")
         if answer == "yes" or "y":
+            print("Thank you for playing!")
             quit()
+    else:
+        print("Continuing current game...")
 
 
 def start():
     """Plays the Three Musketeers Game."""
 
-    #check if the gamestate file exists, if not create it.
+    # checks if the gamestate file exists, if not creates it
+
     if not os.path.exists("gamestates.txt"):
         gs = open("gamestates.txt", "w")
         gs.write("Number of Saved Games: 0" + "\n")
         gs.close()
 
-    print("Welcome to the Three Musketeers Game!")
-    print("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game? ", end="")
-    choice = input()
-    if choice == "load":
-        list_saved_games()
-        game_id = input("Please type in the ID of the game you want to load: ")
-        users_side = load_game(game_id)
-    else:
-        create_board()
-        users_side = choose_users_side()
+    print("""-------------------------- Welcome to the Three Musketeers Game! --------------------------
+                                      _..._
+                                          ,--. /.---.\\
+                                     .---/____\|--.  `
+                                    (    '----'    )
+                                     `-..........-'
+                                       __|`--(__
+                                      /'~~~/\~~'\\
+                                     /   _/| )   \\
+                                    /      /\     \\
+                                  _/      |  |     \\
+                                _/        /  \      \\
+                              _///)\     (    )      )
+                             / )/   )    )><><|      (
+                             L/(_,  /    / ,  `\      )
+                              /    /    ( / | \ )    /
+                             /(    (    )_._._._(    |
+                            /  )    \  /  /  \   \   |
+                           /  (      \(   |  |   |\  |
+                          /    )     _|__/    \__|_) |
+                         /     \__   \   /    \   /( |
+                        /         `. |_ /      \ _| )|
+                       /            \|- |      | -| |(
+                      /            ,--. |      | ,--.\\\\
+                     /          gnv|____\`'==--/____|-`
+    """)
 
-    print_instructions()
-    begin_game(users_side)
+    # prompts the user to choose to start a new game or load a saved game, uses the right function to start the game
+
+    choice = input("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game? ").lower().replace(" ", "")
+    if choice == "load":
+        print_instructions()
+        start_loaded_game()
+    else:
+        start_new_game()
+
 
 def begin_game(users_side):
+
+    # starts game by printing the board state and player identity, then initiating the gameplay while loop
+
     print_board()
     print("You are playing as: {}".format(users_side))
     while True:
