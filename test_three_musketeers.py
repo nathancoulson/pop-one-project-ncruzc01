@@ -1,5 +1,5 @@
 import pytest
-from three_musketeers import *
+from three_musketeers_with_files import *
 
 left = 'left'
 right = 'right'

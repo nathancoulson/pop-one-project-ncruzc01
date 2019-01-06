@@ -550,38 +550,31 @@ def start():
         gs.close()
 
     print("""-------------------------- Welcome to the Three Musketeers Game! --------------------------
-                                      _..._
-                                          ,--. /.---.\\
-                                     .---/____\|--.  `
-                                    (    '----'    )
-                                     `-..........-'
-                                       __|`--(__
-                                      /'~~~/\~~'\\
-                                     /   _/| )   \\
-                                    /      /\     \\
-                                  _/      |  |     \\
-                                _/        /  \      \\
-                              _///)\     (    )      )
-                             / )/   )    )><><|      (
-                             L/(_,  /    / ,  `\      )
-                              /    /    ( / | \ )    /
-                             /(    (    )_._._._(    |
-                            /  )    \  /  /  \   \   |
-                           /  (      \(   |  |   |\  |
-                          /    )     _|__/    \__|_) |
-                         /     \__   \   /    \   /( |
-                        /         `. |_ /      \ _| )|
-                       /            \|- |      | -| |(
-                      /            ,--. |      | ,--.\\\\
-                     /          gnv|____\`'==--/____|-`
+                             888             888                           
+                             888             888                           
+                             888             888                           
+88888b.d88b. 888  888.d8888b 888  888 .d88b. 888888 .d88b.  .d88b. 888d888 
+888 "888 "88b888  88888K     888 .88Pd8P  Y8b888   d8P  Y8bd8P  Y8b888P"   
+888  888  888888  888"Y8888b.888888K 88888888888   8888888888888888888     
+888  888  888Y88b 888     X88888 "88bY8b.    Y88b. Y8b.    Y8b.    888     
+888  888  888 "Y88888 88888P'888  888 "Y8888  "Y888 "Y8888  "Y8888 888     
     """)
 
     # prompts the user to choose to start a new game or load a saved game, uses the right function to start the game
 
     choice = input("Type \"new\" if you want to start a new game, or \"load\" if you want to load a previous game? ").lower().replace(" ", "")
     if choice == "load":
-        print_instructions()
-        start_loaded_game()
+
+        # checks if there are any saved games, if not prompts user to start a new game, else lists saved games
+
+        with open("gamestates.txt", "r") as file:
+            num_saved_games = int(file.readline().split()[4])
+            if num_saved_games == 0:
+                print("\n"*5 + "There are no saved games! Try starting a new game ;-)" + "\n"*5)
+                start()
+            else:
+                print_instructions()
+                start_loaded_game()
     else:
         start_new_game()
 

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34dd7052-8200-46d1-83a0-cd15256cbdce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/gamestates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/three_musketeers.py" beforeDir="false" afterPath="$PROJECT_DIR$/three_musketeers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme_new.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_three_musketeers.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_three_musketeers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/three_musketeers.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,84 +18,67 @@
     <session id="1901690960">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="4" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.closed" value="22" />
+          <entry key="project.open.time.0" value="3" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="5" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="6" />
+          <entry key="py" value="12" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="6" />
+          <entry key="Python" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="253" />
-          <entry key="py" value="16370" />
-          <entry key="txt" value="395" />
+          <entry key="py" value="16898" />
+          <entry key="txt" value="444" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="395" />
-          <entry key="Python" value="16623" />
+          <entry key="PLAIN_TEXT" value="444" />
+          <entry key="Python" value="17151" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_three_musketeers.py">
+        <entry file="file://$PROJECT_DIR$/three_musketeers_with_files.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2124">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <marker date="1546364914907" expanded="true" signature="3654:3659" ph="..." />
-                <marker date="1546364914907" expanded="true" signature="8802:8807" ph="..." />
-                <marker date="1546364914907" expanded="true" signature="10653:10658" ph="..." />
-              </folding>
+            <state relative-caret-position="722">
+              <caret line="606" lean-forward="true" selection-start-line="606" selection-end-line="606" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/three_musketeers.py">
+        <entry file="file://$PROJECT_DIR$/test_three_musketeers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="612" column="17" selection-start-line="612" selection-start-column="17" selection-end-line="612" selection-end-column="17" />
+            <state relative-caret-position="390">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
-                <element signature="e#675#684#0" expanded="true" />
-                <marker date="1546442933372" expanded="true" signature="9670:9675" ph="..." />
-                <marker date="1546442933372" expanded="true" signature="10790:10795" ph="..." />
-                <marker date="1546442933372" expanded="true" signature="18638:18748" ph="..." />
-                <marker date="1546442933372" expanded="true" signature="18774:20228" ph="..." />
-                <marker date="1546442933372" expanded="true" signature="20240:20245" ph="..." />
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1546769838242" expanded="true" signature="3665:3670" ph="..." />
+                <marker date="1546769838242" expanded="true" signature="8813:8818" ph="..." />
+                <marker date="1546769838242" expanded="true" signature="10664:10669" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/readme_new.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -105,17 +91,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test_three_musketeers.py" />
         <option value="$PROJECT_DIR$/readme_new.txt" />
         <option value="$PROJECT_DIR$/three_musketeers.py" />
+        <option value="$PROJECT_DIR$/test_three_musketeers.py" />
+        <option value="$PROJECT_DIR$/three_musketeers_with_files.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2288" />
-    <option name="y" value="119" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-2267" />
+    <option name="y" value="-7" />
     <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="height" value="1292" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -156,8 +143,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.three_musketeers">
-    <configuration name="test_three_musketeers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.three_musketeers_with_files">
+    <configuration name="test_three_musketeers" type="PythonConfigurationType" factoryName="Python">
       <module name="pop-one-project-ncruzc01" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -199,14 +186,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="three_musketeers_with_files" type="PythonConfigurationType" factoryName="Python">
+      <module name="pop-one-project-ncruzc01" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/three_musketeers_with_files.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.test_three_musketeers" />
+      <item itemvalue="Python.three_musketeers_with_files" />
       <item itemvalue="Python.three_musketeers" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.three_musketeers" />
-        <item itemvalue="Python.test_three_musketeers" />
       </list>
     </recent_temporary>
   </component>
@@ -224,23 +232,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2560" y="-95" width="2560" height="1336" extended-state="6" />
-    <editor active="true" />
+    <frame x="-2267" y="-7" width="1440" height="1292" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06892478" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12332629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7210611" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32833335" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32583332" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29340836" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28416666" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.34083602" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.34083334" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -250,37 +257,24 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/readme_new.txt">
+    <entry file="file://$PROJECT_DIR$/readme_new.txt" />
+    <entry file="file://$PROJECT_DIR$/three_musketeers.py" />
+    <entry file="file://$PROJECT_DIR$/three_musketeers_with_files.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        <state relative-caret-position="722">
+          <caret line="606" lean-forward="true" selection-start-line="606" selection-end-line="606" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_three_musketeers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2124">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="390">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1546364914907" expanded="true" signature="3654:3659" ph="..." />
-            <marker date="1546364914907" expanded="true" signature="8802:8807" ph="..." />
-            <marker date="1546364914907" expanded="true" signature="10653:10658" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/three_musketeers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="612" column="17" selection-start-line="612" selection-start-column="17" selection-end-line="612" selection-end-column="17" />
-          <folding>
-            <element signature="e#675#684#0" expanded="true" />
-            <marker date="1546442933372" expanded="true" signature="9670:9675" ph="..." />
-            <marker date="1546442933372" expanded="true" signature="10790:10795" ph="..." />
-            <marker date="1546442933372" expanded="true" signature="18638:18748" ph="..." />
-            <marker date="1546442933372" expanded="true" signature="18774:20228" ph="..." />
-            <marker date="1546442933372" expanded="true" signature="20240:20245" ph="..." />
+            <marker date="1546769838242" expanded="true" signature="3665:3670" ph="..." />
+            <marker date="1546769838242" expanded="true" signature="8813:8818" ph="..." />
+            <marker date="1546769838242" expanded="true" signature="10664:10669" ph="..." />
           </folding>
         </state>
       </provider>
